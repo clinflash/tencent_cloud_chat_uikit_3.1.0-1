@@ -217,6 +217,9 @@ class _TIMUIKitConversationState extends TIMUIKitState<TIMUIKitConversation> {
                 .getConversation(conversationID: 'group_$groupId');
         V2TimConversation? targetConversation = getConversationRes.data;
         if (getConversationRes.code == 0 && targetConversation != null) {
+          if(filteredConversationList.isNotEmpty){
+            targetConversation.orderkey = (filteredConversationList.first!.orderkey! + 1);
+          }
           filteredConversationList.insert(0, targetConversation);
         }
       }
