@@ -219,6 +219,7 @@ class _TIMUIKitConversationState extends TIMUIKitState<TIMUIKitConversation> {
         if (getConversationRes.code == 0 && targetConversation != null) {
           if(filteredConversationList.isNotEmpty){
             targetConversation.orderkey = (filteredConversationList.first!.orderkey! + 1);
+            filteredConversationList.add(targetConversation);
           }else{
             filteredConversationList.insert(0, targetConversation);
           }
