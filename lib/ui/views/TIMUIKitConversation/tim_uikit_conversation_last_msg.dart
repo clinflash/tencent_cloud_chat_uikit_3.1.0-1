@@ -22,17 +22,19 @@ class TIMUIKitLastMsg extends StatefulWidget {
   bool isDisturb;
   int unreadCount;
   String draftText;
+  final String? subjectNo;
 
-  TIMUIKitLastMsg(
-      {Key? key,
-      this.lastMsg,
-      required this.groupAtInfoList,
-      this.isDisturb = false,
-      this.unreadCount = 0,
-      required this.draftText,
-      required this.context,
-      this.fontSize = 14.0})
-      : super(key: key);
+  TIMUIKitLastMsg({
+    Key? key,
+    this.lastMsg,
+    required this.groupAtInfoList,
+    this.isDisturb = false,
+    this.unreadCount = 0,
+    required this.draftText,
+    required this.context,
+    this.fontSize = 14.0,
+    this.subjectNo,
+  }) : super(key: key);
 
   @override
   State<TIMUIKitLastMsg> createState() => _TIMUIKitLastMsgState();
@@ -80,61 +82,33 @@ class _TIMUIKitLastMsgState extends TIMUIKitState<TIMUIKitLastMsg> {
     final revokeStatus = isRevokeMessage(widget.lastMsg);
     final isRevokedMessage = revokeStatus.$1;
     final isAdminRevoke = revokeStatus.$2;
-    if (isRevokedMessage) {
-      final isSelf = widget.lastMsg!.isSelf ?? true;
-      final option1 =
-          isAdminRevoke ? TIM_t("管理员") : (isSelf ? TIM_t("您") : widget.lastMsg!.nickName ?? widget.lastMsg?.sender);
-      if (mounted) {
-        setState(() {
-          groupTipsAbstractText = TIM_t_para("{{option1}}撤回了一条消息", "$option1撤回了一条消息")(option1: option1);
-        });
-      }
-    } else {
-      String msgShowText = await _getLastMsgShowText(widget.lastMsg, widget.context) ?? "";
-      if (mounted) {
-        setState(() {
-          groupTipsAbstractText = msgShowText;
-        });
-      }
+    String msgShowText =
+        await _getLastMsgShowText(widget.lastMsg, widget.context) ?? "";
+    if (mounted) {
+      setState(() {
+        groupTipsAbstractText = msgShowText;
+      });
     }
   }
 
   String _getDisturbUnreadCountInfo() {
     if (widget.isDisturb && widget.unreadCount > 0) {
       final option1 = widget.unreadCount.toString();
-      String unreadCountText = TIM_t_para("[{{option1}} 条]", "[$option1 条]")(option1: option1);
+      String unreadCountText =
+          TIM_t_para("[{{option1}} 条]", "[$option1 条]")(option1: option1);
       return unreadCountText;
     }
 
     return "";
   }
 
-  Future<String?> _getLastMsgShowText(V2TimMessage? message, BuildContext context) async {
+  Future<String?> _getLastMsgShowText(
+      V2TimMessage? message, BuildContext context) async {
     final msgType = message!.elemType;
-    switch (msgType) {
-      case MessageElemType.V2TIM_ELEM_TYPE_CUSTOM:
-        return TIM_t("[自定义]");
-      case MessageElemType.V2TIM_ELEM_TYPE_SOUND:
-        return TIM_t("[语音]");
-      case MessageElemType.V2TIM_ELEM_TYPE_TEXT:
-        return (widget.lastMsg?.textElem?.text)?.trim() ?? "";
-      case MessageElemType.V2TIM_ELEM_TYPE_FACE:
-        return TIM_t("[表情]");
-      case MessageElemType.V2TIM_ELEM_TYPE_FILE:
-        final option1 = widget.lastMsg!.fileElem!.fileName;
-        return TIM_t_para("[文件] {{option1}}", "[文件] $option1")(option1: option1);
-      case MessageElemType.V2TIM_ELEM_TYPE_GROUP_TIPS:
-        return await MessageUtils.groupTipsMessageAbstract(widget.lastMsg!.groupTipsElem!, []);
-      case MessageElemType.V2TIM_ELEM_TYPE_IMAGE:
-        return TIM_t("[图片]");
-      case MessageElemType.V2TIM_ELEM_TYPE_VIDEO:
-        return TIM_t("[视频]");
-      case MessageElemType.V2TIM_ELEM_TYPE_LOCATION:
-        return TIM_t("[位置]");
-      case MessageElemType.V2TIM_ELEM_TYPE_MERGER:
-        return TIM_t("[聊天记录]");
-      default:
-        return null;
+    if (message.groupID != null) {
+      return widget.subjectNo;
+    } else {
+      return '';
     }
   }
 
@@ -158,10 +132,10 @@ class _TIMUIKitLastMsgState extends TIMUIKitState<TIMUIKitLastMsg> {
       if (item!.atType == 1) {
         atMe = true;
         continue;
-      } else if (item!.atType == 2) {
+      } else if (item.atType == 2) {
         atAll = true;
         continue;
-      } else if (item!.atType == 3) {
+      } else if (item.atType == 3) {
         atMe = true;
         atAll = true;
         continue;
@@ -186,7 +160,8 @@ class _TIMUIKitLastMsgState extends TIMUIKitState<TIMUIKitLastMsg> {
 
   @override
   Widget tuiBuild(BuildContext context, TUIKitBuildValue value) {
-    final isDesktopScreen = TUIKitScreenUtils.getFormFactor(context) == DeviceType.Desktop;
+    final isDesktopScreen =
+        TUIKitScreenUtils.getFormFactor(context) == DeviceType.Desktop;
     final TUITheme theme = value.theme;
     final icon = _getIconByMsgStatus(context);
     String disturbUnreadCountInfo = _getDisturbUnreadCountInfo();
@@ -197,40 +172,51 @@ class _TIMUIKitLastMsgState extends TIMUIKitState<TIMUIKitLastMsg> {
           child: icon,
         ),
       if (widget.groupAtInfoList.isNotEmpty)
-        Text(_getAtMessage(), style: TextStyle(color: theme.cautionColor, fontSize: widget.fontSize)),
+        Text(_getAtMessage(),
+            style: TextStyle(
+                color: theme.cautionColor, fontSize: widget.fontSize)),
       if (widget.draftText != null && widget.draftText != "")
-        Text(_getDraftShowText(), style: TextStyle(color: theme.conversationItemDraftTextColor, fontSize: widget.fontSize)),
+        Text(_getDraftShowText(),
+            style: TextStyle(
+                color: theme.conversationItemDraftTextColor,
+                fontSize: widget.fontSize)),
       if (disturbUnreadCountInfo != "")
-        Text(disturbUnreadCountInfo, style: TextStyle(color: theme.weakTextColor, fontSize: widget.fontSize)),
+        Text(disturbUnreadCountInfo,
+            style: TextStyle(
+                color: theme.weakTextColor, fontSize: widget.fontSize)),
       if (widget.draftText != null && widget.draftText != "")
         Expanded(
-          child: ExtendedText(
-              groupTipsAbstractText,
+          child: ExtendedText(groupTipsAbstractText,
               softWrap: true,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(height: 1, color: theme.weakTextColor, fontSize: widget.fontSize),
+              style: TextStyle(
+                  height: 1,
+                  color: theme.weakTextColor,
+                  fontSize: widget.fontSize),
               specialTextSpanBuilder: DefaultSpecialTextSpanBuilder(
                 isUseQQPackage: true,
                 isUseTencentCloudChatPackage: true,
                 showAtBackground: true,
-              )
-          ),
+              )),
         ),
-      if (widget.draftText == null || widget.draftText == "" && TencentUtils.checkString(groupTipsAbstractText) != null)
+      if (widget.draftText == null ||
+          widget.draftText == "" &&
+              TencentUtils.checkString(groupTipsAbstractText) != null)
         Expanded(
-          child: ExtendedText(
-            groupTipsAbstractText,
-            softWrap: true,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(height: 1, color: theme.weakTextColor, fontSize: widget.fontSize),
+          child: ExtendedText(groupTipsAbstractText,
+              softWrap: true,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                  height: 1,
+                  color: theme.weakTextColor,
+                  fontSize: widget.fontSize),
               specialTextSpanBuilder: DefaultSpecialTextSpanBuilder(
                 isUseQQPackage: true,
                 isUseTencentCloudChatPackage: true,
                 showAtBackground: true,
-              )
-          ),
+              )),
         )
     ]);
   }

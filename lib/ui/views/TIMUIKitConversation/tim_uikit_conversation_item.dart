@@ -30,6 +30,7 @@ class TIMUIKitConversationItem extends TIMUIKitStatelessWidget {
   final V2TimUserStatus? onlineStatus;
   final int? convType;
   final bool isCurrent;
+  final String? subjectNo;
 
   TIMUIKitConversationItem({
     Key? key,
@@ -46,6 +47,7 @@ class TIMUIKitConversationItem extends TIMUIKitStatelessWidget {
     this.draftTimestamp,
     this.lastMessageBuilder,
     this.convType,
+    this.subjectNo,
   }) : super(key: key);
 
   Widget _getShowMsgWidget(BuildContext context) {
@@ -64,12 +66,22 @@ class TIMUIKitConversationItem extends TIMUIKitStatelessWidget {
         unreadCount: unreadCount,
         context: context,
         draftText: draftText ?? "",
+        subjectNo: subjectNo,
       );
     }
 
-    return Container(
-      height: 0,
-    );
+    return Expanded(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Text(
+            subjectNo?? '',
+            softWrap: true,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+                height: 1, color: Color(0xFF999999), fontSize: 14),
+          ),
+        ));
   }
 
   bool isHaveSecondLine() {
