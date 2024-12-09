@@ -25,10 +25,12 @@ class CenterPlayButton extends TIMUIKitStatelessWidget {
             opacity: show ? 1.0 : 0.0,
             duration: const Duration(milliseconds: 300),
             child: GestureDetector(
-              child: IconButton(
-                iconSize: 64,
-                icon: Image.asset('images/play.png', package: 'tencent_cloud_chat_uikit'),
-                onPressed: onPressed,
+              onTap: onPressed,
+              child: Image.asset(
+                'images/play.png',
+                package: 'tencent_cloud_chat_uikit',
+                width: 64,
+                height: 64,
               ),
             ),
           ),
