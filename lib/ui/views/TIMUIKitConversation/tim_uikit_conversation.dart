@@ -217,10 +217,23 @@ class _TIMUIKitConversationState extends TIMUIKitState<TIMUIKitConversation> {
                 .getConversation(conversationID: 'group_$groupId');
         V2TimConversation? targetConversation = getConversationRes.data;
         if (getConversationRes.code == 0 && targetConversation != null) {
-          filteredConversationList.insert(0, targetConversation);
+          targetConversation.lastMessage ??= V2TimMessage(
+              elemType: 1, timestamp: int.tryParse(group['createTime']!));
+          filteredConversationList.add(targetConversation);
         }
       }
     }
+    try {
+      filteredConversationList.sort((a, b) {
+        return b!.lastMessage!.timestamp!.compareTo(a!.lastMessage!.timestamp!);
+      });
+
+      final pinnedConversation = filteredConversationList.where((element) => element?.isPinned == true).toList();
+      filteredConversationList.removeWhere((element) => element?.isPinned == true);
+      filteredConversationList = [...pinnedConversation, ...filteredConversationList];
+      // ignore: empty_catches
+    } catch (e) {}
+
     if (widget.searchText != null && widget.searchText!.isNotEmpty) {
       filteredConversationList = filteredConversationList
           .where((conversation) =>
