@@ -390,7 +390,7 @@ class _TIMUIKitConversationState extends TIMUIKitState<TIMUIKitConversation> {
                                   (group) =>
                                       group['groupId'] ==
                                       conversationItem?.groupID);
-                              if (groupIndex != null) {
+                              if (groupIndex != null && groupIndex != -1) {
                                 planName = widget.groups![groupIndex]
                                         ['planName'] ??
                                     '';
