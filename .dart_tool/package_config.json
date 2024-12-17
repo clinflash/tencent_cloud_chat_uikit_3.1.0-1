@@ -39,9 +39,9 @@
     },
     {
       "name": "audio_session",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/audio_session-0.1.21",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/audio_session-0.1.23",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.4"
     },
     {
       "name": "azlistview_all_platforms",
@@ -255,7 +255,7 @@
     },
     {
       "name": "device_info_plus_platform_interface",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/device_info_plus_platform_interface-7.0.1",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/device_info_plus_platform_interface-7.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -327,9 +327,9 @@
     },
     {
       "name": "file_picker",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/file_picker-5.5.0",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/file_picker-8.1.6",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.4"
     },
     {
       "name": "file_selector_linux",
@@ -441,7 +441,7 @@
     },
     {
       "name": "flutter_slidable",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/flutter_slidable-3.1.1",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/flutter_slidable-3.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -519,9 +519,9 @@
     },
     {
       "name": "image_picker",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/image_picker-0.8.9",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/image_picker-1.1.2",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.3"
     },
     {
       "name": "image_picker_android",
@@ -531,9 +531,9 @@
     },
     {
       "name": "image_picker_for_web",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/image_picker_for_web-2.2.0",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/image_picker_for_web-3.0.6",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.4"
     },
     {
       "name": "image_picker_ios",
@@ -573,9 +573,9 @@
     },
     {
       "name": "io",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/io-1.0.4",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/io-1.0.5",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.4"
     },
     {
       "name": "js",
@@ -675,7 +675,7 @@
     },
     {
       "name": "mime",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/mime-1.0.6",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/mime-2.0.0",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -747,19 +747,19 @@
     },
     {
       "name": "package_config",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/package_config-2.1.0",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/package_config-2.1.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.4"
     },
     {
       "name": "package_info_plus",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/package_info_plus-8.1.1",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/package_info_plus-8.1.2",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
     {
       "name": "package_info_plus_platform_interface",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/package_info_plus_platform_interface-3.0.1",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/package_info_plus_platform_interface-3.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -795,7 +795,7 @@
     },
     {
       "name": "path_provider_android",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.14",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.15",
       "packageUri": "lib/",
       "languageVersion": "3.5"
     },
@@ -897,9 +897,9 @@
     },
     {
       "name": "pub_semver",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/pub_semver-2.1.4",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/pub_semver-2.1.5",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.4"
     },
     {
       "name": "pubspec_parse",
@@ -927,13 +927,13 @@
     },
     {
       "name": "sensors_plus",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/sensors_plus-6.1.0",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/sensors_plus-6.1.1",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
     {
       "name": "sensors_plus_platform_interface",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/sensors_plus_platform_interface-2.0.0",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/sensors_plus_platform_interface-2.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -945,15 +945,15 @@
     },
     {
       "name": "shared_preferences_android",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_android-2.3.4",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_android-2.4.0",
       "packageUri": "lib/",
       "languageVersion": "3.5"
     },
     {
       "name": "shared_preferences_foundation",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_foundation-2.5.3",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_foundation-2.5.4",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.4"
     },
     {
       "name": "shared_preferences_linux",
@@ -999,9 +999,9 @@
     },
     {
       "name": "source_span",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/source_span-1.10.0",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/source_span-1.10.1",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.1"
     },
     {
       "name": "sqflite",
@@ -1065,7 +1065,7 @@
     },
     {
       "name": "tencent_chat_i18n_tool",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/tencent_chat_i18n_tool-2.3.6",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/tencent_chat_i18n_tool-2.3.8",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -1119,9 +1119,9 @@
     },
     {
       "name": "timing",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/timing-1.0.1",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/timing-1.0.2",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "3.4"
     },
     {
       "name": "transparent_image",
@@ -1245,7 +1245,7 @@
     },
     {
       "name": "video_player_avfoundation",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/video_player_avfoundation-2.6.4",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/video_player_avfoundation-2.6.5",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -1358,7 +1358,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-12-09T09:57:27.991223Z",
+  "generated": "2024-12-17T10:02:02.212210Z",
   "generator": "pub",
   "generatorVersion": "3.5.4",
   "flutterRoot": "file:///Users/tg_weiqingqing/flutter",
