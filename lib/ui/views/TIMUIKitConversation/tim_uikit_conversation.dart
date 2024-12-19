@@ -435,7 +435,7 @@ class _TIMUIKitConversationState extends TIMUIKitState<TIMUIKitConversation> {
                                     lastMessageBuilder:
                                         widget.lastMessageBuilder,
                                     faceUrl: conversationItem.faceUrl ?? "",
-                                    nickName: conversationItem.showName ?? "",
+                                    nickName: planName,
                                     isDisturb:
                                         (conversationItem.groupType == "Meeting"
                                             ? false
