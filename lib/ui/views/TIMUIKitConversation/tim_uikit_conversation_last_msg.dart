@@ -173,7 +173,7 @@ class _TIMUIKitLastMsgState extends TIMUIKitState<TIMUIKitLastMsg> {
           margin: const EdgeInsets.only(right: 2),
           child: icon,
         ),
-      if (widget.convType != 1)
+      if (widget.groupAtInfoList.isNotEmpty)
         Text(_getAtMessage(),
             style: TextStyle(
                 color: theme.cautionColor, fontSize: widget.fontSize)),

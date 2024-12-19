@@ -220,6 +220,7 @@ class _TIMUIKitConversationState extends TIMUIKitState<TIMUIKitConversation> {
           targetConversation.lastMessage ??= V2TimMessage(
               elemType: 1,
               timestamp: int.tryParse(group['createTime']!),
+              groupID: groupId,
               textElem: V2TimTextElem(text: group['subjectNo']));
           filteredConversationList.add(targetConversation);
         }
