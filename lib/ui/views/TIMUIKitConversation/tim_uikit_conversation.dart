@@ -218,7 +218,9 @@ class _TIMUIKitConversationState extends TIMUIKitState<TIMUIKitConversation> {
         V2TimConversation? targetConversation = getConversationRes.data;
         if (getConversationRes.code == 0 && targetConversation != null) {
           targetConversation.lastMessage ??= V2TimMessage(
-              elemType: 1, timestamp: int.tryParse(group['createTime']!));
+              elemType: 1,
+              timestamp: int.tryParse(group['createTime']!),
+              textElem: V2TimTextElem(text: group['subjectNo']));
           filteredConversationList.add(targetConversation);
         }
       }
