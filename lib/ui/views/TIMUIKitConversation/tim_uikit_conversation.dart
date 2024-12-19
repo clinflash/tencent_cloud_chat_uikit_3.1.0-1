@@ -228,9 +228,15 @@ class _TIMUIKitConversationState extends TIMUIKitState<TIMUIKitConversation> {
         return b!.lastMessage!.timestamp!.compareTo(a!.lastMessage!.timestamp!);
       });
 
-      final pinnedConversation = filteredConversationList.where((element) => element?.isPinned == true).toList();
-      filteredConversationList.removeWhere((element) => element?.isPinned == true);
-      filteredConversationList = [...pinnedConversation, ...filteredConversationList];
+      final pinnedConversation = filteredConversationList
+          .where((element) => element?.isPinned == true)
+          .toList();
+      filteredConversationList
+          .removeWhere((element) => element?.isPinned == true);
+      filteredConversationList = [
+        ...pinnedConversation,
+        ...filteredConversationList
+      ];
       // ignore: empty_catches
     } catch (e) {}
 
@@ -435,7 +441,9 @@ class _TIMUIKitConversationState extends TIMUIKitState<TIMUIKitConversation> {
                                     lastMessageBuilder:
                                         widget.lastMessageBuilder,
                                     faceUrl: conversationItem.faceUrl ?? "",
-                                    nickName: planName,
+                                    nickName: conversationItem.type != 1
+                                        ? planName
+                                        : conversationItem.showName ?? '',
                                     isDisturb:
                                         (conversationItem.groupType == "Meeting"
                                             ? false
