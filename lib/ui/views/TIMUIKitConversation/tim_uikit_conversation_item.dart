@@ -67,6 +67,7 @@ class TIMUIKitConversationItem extends TIMUIKitStatelessWidget {
         context: context,
         draftText: draftText ?? "",
         subjectNo: subjectNo,
+        convType: convType,
       );
     }
 

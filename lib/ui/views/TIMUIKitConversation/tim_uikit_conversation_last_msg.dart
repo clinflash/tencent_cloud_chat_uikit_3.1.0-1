@@ -23,6 +23,7 @@ class TIMUIKitLastMsg extends StatefulWidget {
   int unreadCount;
   String draftText;
   final String? subjectNo;
+  final int? convType;
 
   TIMUIKitLastMsg({
     Key? key,
@@ -34,6 +35,7 @@ class TIMUIKitLastMsg extends StatefulWidget {
     required this.context,
     this.fontSize = 14.0,
     this.subjectNo,
+    this.convType,
   }) : super(key: key);
 
   @override
@@ -171,7 +173,7 @@ class _TIMUIKitLastMsgState extends TIMUIKitState<TIMUIKitLastMsg> {
           margin: const EdgeInsets.only(right: 2),
           child: icon,
         ),
-      if (widget.groupAtInfoList.isNotEmpty)
+      if (widget.convType != 1)
         Text(_getAtMessage(),
             style: TextStyle(
                 color: theme.cautionColor, fontSize: widget.fontSize)),
