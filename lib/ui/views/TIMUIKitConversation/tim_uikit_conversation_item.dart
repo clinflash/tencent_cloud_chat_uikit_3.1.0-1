@@ -59,7 +59,7 @@ class TIMUIKitConversationItem extends TIMUIKitStatelessWidget {
 
     if (lastMsg != null || (draftText != null && draftText != "")) {
       return TIMUIKitLastMsg(
-        fontSize: isDesktopScreen ? 12 : 14,
+        fontSize: 12,
         groupAtInfoList: groupAtInfoList,
         lastMsg: lastMsg,
         isDisturb: isDisturb,
@@ -113,7 +113,7 @@ class TIMUIKitConversationItem extends TIMUIKitStatelessWidget {
     final TUITheme theme = value.theme;
     final isDesktopScreen = TUIKitScreenUtils.getFormFactor(context) == DeviceType.Desktop;
     return Container(
-      padding: const EdgeInsets.only(top: 6, bottom: 6, left: 16, right: 16),
+      padding: const EdgeInsets.only(top: 16, bottom: 12, left: 16, right: 16),
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
