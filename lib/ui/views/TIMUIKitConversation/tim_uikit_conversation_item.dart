@@ -173,10 +173,10 @@ class TIMUIKitConversationItem extends TIMUIKitStatelessWidget {
                       textAlign: TextAlign.left,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
-                      style: TextStyle(
+                      style: const TextStyle(
                         height: 1,
-                        color: theme.conversationItemTitleTextColor,
-                        fontSize: isDesktopScreen ? 14 : 18,
+                        color: Color(0xFF081A38),
+                        fontSize: 14,
                         fontWeight: FontWeight.w400,
                       ),
                     )),

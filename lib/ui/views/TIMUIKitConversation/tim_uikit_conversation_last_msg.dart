@@ -33,7 +33,7 @@ class TIMUIKitLastMsg extends StatefulWidget {
     this.unreadCount = 0,
     required this.draftText,
     required this.context,
-    this.fontSize = 14.0,
+    this.fontSize = 12.0,
     this.subjectNo,
     this.convType,
   }) : super(key: key);
@@ -194,7 +194,7 @@ class _TIMUIKitLastMsgState extends TIMUIKitState<TIMUIKitLastMsg> {
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                   height: 1,
-                  color: theme.weakTextColor,
+                  color: const Color(0xFF6A7588),
                   fontSize: widget.fontSize),
               specialTextSpanBuilder: DefaultSpecialTextSpanBuilder(
                 isUseQQPackage: true,
