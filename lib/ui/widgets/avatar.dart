@@ -36,10 +36,10 @@ class Avatar extends TIMUIKitStatelessWidget {
   Widget getImageWidget(BuildContext context, TUITheme theme) {
     Widget defaultAvatar() {
       if (type == 1) {
-        return Image.asset(
+        return SvgPicture.asset(
             TencentUtils.checkString(
                     selfInfoViewModel.globalConfig?.defaultAvatarAssetPath) ??
-                'images/default_c2c_head.png',
+                'images/default_c2c_head.svg',
             fit: BoxFit.cover,
             package:
                 selfInfoViewModel.globalConfig?.defaultAvatarAssetPath != null

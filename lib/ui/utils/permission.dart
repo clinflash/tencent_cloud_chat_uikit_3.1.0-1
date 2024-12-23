@@ -235,7 +235,7 @@ class Permissions {
     /// 请求相关的权限
     await Permission.byValue(value).request();
     final status = await Permission.byValue(value).status;
-    if (status.isGranted || status.isLimited) {
+    if (status.isGranted) {
       return true;
     }
     final bool? shouldRequestPermission = await showPermissionConfirmDialog(

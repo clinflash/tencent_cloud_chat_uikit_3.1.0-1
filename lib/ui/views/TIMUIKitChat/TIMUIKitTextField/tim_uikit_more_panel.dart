@@ -485,13 +485,13 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
       final convID = widget.conversationID;
       final convType = widget.conversationType;
       final pickedFile = await CameraPicker.pickFromCamera(context,
-          pickerConfig: CameraPickerConfig(
-              enableRecording: true,
-              textDelegate: IntlCameraPickerTextDelegate()));
+          pickerConfig: const CameraPickerConfig(
+            maximumRecordingDuration: Duration(seconds: 10),
+              enableRecording: true,));
       final originFile = await pickedFile?.originFile;
       if (originFile != null) {
         final type = pickedFile!.type;
-        final size = await originFile!.length();
+        final size = await originFile.length();
         if (type == AssetType.image) {
           if (size >= MorePanelConfig.IMAGE_MAX_SIZE) {
             onTIMCallback(TIMCallback(
