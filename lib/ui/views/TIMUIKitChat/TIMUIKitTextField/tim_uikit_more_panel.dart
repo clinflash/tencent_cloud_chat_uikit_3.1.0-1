@@ -486,7 +486,7 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
       final convType = widget.conversationType;
       final pickedFile = await CameraPicker.pickFromCamera(context,
           pickerConfig: const CameraPickerConfig(
-            maximumRecordingDuration: Duration(seconds: 10),
+            maximumRecordingDuration: Duration(seconds: 11),
               enableRecording: true,));
       final originFile = await pickedFile?.originFile;
       if (originFile != null) {
