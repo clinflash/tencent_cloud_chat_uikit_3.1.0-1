@@ -320,11 +320,11 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
     }).toList();
   }
 
-  _sendVideoMessage(AssetEntity asset, int size, TUIChatSeparateViewModel model) async {
+  _sendVideoMessage(
+      AssetEntity asset, int size, TUIChatSeparateViewModel model) async {
     if (size >= MorePanelConfig.VIDEO_MAX_SIZE) {
       onTIMCallback(TIMCallback(
-          type: TIMCallbackType.INFO,
-          infoRecommendText: TIM_t("文件大小超出了限制")));
+          type: TIMCallbackType.INFO, infoRecommendText: TIM_t("文件大小超出了限制")));
       return;
     }
 
@@ -476,6 +476,13 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
       )) {
         return;
       }
+      if (!await Permissions.checkPermission(
+        context,
+        Permission.photos.value,
+        theme,
+      )) {
+        return;
+      }
       await Permissions.checkPermission(
         context,
         Permission.microphone.value,
@@ -484,7 +491,9 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
 
       final convID = widget.conversationID;
       final convType = widget.conversationType;
-      final pickedFile = await CameraPicker.pickFromCamera(context,);
+      final pickedFile = await CameraPicker.pickFromCamera(
+        context,
+      );
       final originFile = await pickedFile?.originFile;
       if (originFile != null) {
         final type = pickedFile!.type;
@@ -669,7 +678,8 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
       bool hasCameraPermission = false;
       bool hasMicrophonePermission = false;
       if (type == TYPE_VIDEO) {
-        hasCameraPermission = await Permissions.checkPermission(context, Permission.camera.value);
+        hasCameraPermission =
+            await Permissions.checkPermission(context, Permission.camera.value);
         hasMicrophonePermission = await Permissions.checkPermission(
             context, Permission.microphone.value);
         if (!hasCameraPermission || !hasMicrophonePermission) {

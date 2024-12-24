@@ -1305,7 +1305,7 @@
     },
     {
       "name": "wechat_assets_picker",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/wechat_assets_picker-9.4.1",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/wechat_assets_picker-9.4.2",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -1358,7 +1358,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-12-23T02:19:36.531497Z",
+  "generated": "2024-12-24T02:05:01.094934Z",
   "generator": "pub",
   "generatorVersion": "3.5.4",
   "flutterRoot": "file:///Users/tg_weiqingqing/flutter",
