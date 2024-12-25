@@ -476,18 +476,42 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
       )) {
         return;
       }
-      if (!await Permissions.checkPermission(
-        context,
-        Permission.photos.value,
-        theme,
-      )) {
-        return;
+      if (PlatformUtils().isAndroid) {
+        AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+        if ((androidInfo.version.sdkInt) >= 33) {
+          final videos = await Permissions.checkPermission(
+            context,
+            Permission.videos.value,
+            theme,
+          );
+          final photos = await Permissions.checkPermission(
+            context,
+            Permission.photos.value,
+            theme,
+          );
+          if (!videos && !photos) {
+            return;
+          }
+        } else {
+          final storage = await Permissions.checkPermission(
+            context,
+            Permission.storage.value,
+            theme,
+          );
+          if (!storage) {
+            return;
+          }
+        }
+      } else {
+        final photos = await Permissions.checkPermission(
+          context,
+          Permission.photos.value,
+          theme,
+        );
+        if (!photos) {
+          return;
+        }
       }
-      await Permissions.checkPermission(
-        context,
-        Permission.microphone.value,
-        theme,
-      );
 
       final convID = widget.conversationID;
       final convType = widget.conversationType;
