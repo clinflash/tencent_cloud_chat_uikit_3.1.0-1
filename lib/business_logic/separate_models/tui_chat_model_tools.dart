@@ -87,7 +87,7 @@ class TUIChatModelTools {
       "ext": ext,
       "iOSSound": globalModel.chatConfig.notificationIOSSound,
       "androidSound": globalModel.chatConfig.notificationAndroidSound,
-      "ignoreIOSBadge": true,
+      "ignoreIOSBadge": false,
       "androidOPPOChannelID": globalModel.chatConfig.notificationOPPOChannelID,
     });
   }
