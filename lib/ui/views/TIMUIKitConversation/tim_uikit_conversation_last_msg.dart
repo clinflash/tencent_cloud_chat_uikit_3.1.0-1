@@ -106,8 +106,8 @@ class _TIMUIKitLastMsgState extends TIMUIKitState<TIMUIKitLastMsg> {
 
   Future<String?> _getLastMsgShowText(
       V2TimMessage? message, BuildContext context) async {
-    final msgType = message!.elemType;
-    if (message.groupID != null) {
+    final msgType = message?.elemType;
+    if (message?.groupID != null) {
       return widget.subjectNo;
     } else {
       return '';
@@ -115,7 +115,7 @@ class _TIMUIKitLastMsgState extends TIMUIKitState<TIMUIKitLastMsg> {
   }
 
   Icon? _getIconByMsgStatus(BuildContext context) {
-    final msgStatus = widget.lastMsg!.status;
+    final msgStatus = widget.lastMsg?.status;
     final theme = Provider.of<TUIThemeViewModel>(context).theme;
     if (msgStatus == MessageStatus.V2TIM_MSG_STATUS_SEND_FAIL) {
       return Icon(Icons.error, color: theme.cautionColor, size: 16);
