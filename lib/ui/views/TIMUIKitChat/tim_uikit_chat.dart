@@ -385,6 +385,7 @@ class _TUIChatState extends TIMUIKitState<TIMUIKitChat> {
         builder: (context, model, w) {
           final TUIChatGlobalModel chatGlobalModel = Provider.of<TUIChatGlobalModel>(context, listen: true);
 
+          chatGlobalModel.setChatConfig(widget.config!);
           widget.controller?.model = model;
           widget.controller?.textFieldController = textFieldController;
           widget.controller?.scrollController = autoController;
