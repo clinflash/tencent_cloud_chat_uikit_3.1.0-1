@@ -47,6 +47,7 @@ class MorePanelConfig {
   final bool showVideoCall;
   final List<MorePanelItem>? extraAction;
   final Widget Function(MorePanelItem item)? actionBuilder;
+  final Map<String, dynamic>? httpHeader;
 
   MorePanelConfig({
     this.showFilePickAction = true,
@@ -58,6 +59,7 @@ class MorePanelConfig {
     this.showVideoCall = true,
     this.extraAction,
     this.actionBuilder,
+    this.httpHeader,
   });
 }
 
@@ -748,7 +750,7 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
           : 'You have a new call';
       Response response = await Dio().post(
           'https://patient-cloud-dev.clinflash.net/api/eConsent/im/user/extend/info',
-          data: jsonEncode([widget.conversationID]));
+          data: jsonEncode([widget.conversationID]),options:Options(headers: widget.morePanelConfig!.httpHeader) );
       _tUICore.callService(TUICALLKIT_SERVICE_NAME, METHOD_NAME_CALL, {
         PARAM_NAME_TYPE: type,
         PARAM_NAME_USERIDS: [widget.conversationID],
