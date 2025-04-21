@@ -250,7 +250,7 @@
         <entry key="csslib">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/csslib-0.17.3/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/csslib-1.0.2/lib" />
             </list>
           </value>
         </entry>
@@ -307,6 +307,20 @@
           <value>
             <list>
               <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/diff_match_patch-0.4.1/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="dio">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/dio-5.8.0+1/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="dio_web_adapter">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/dio_web_adapter-2.1.1/lib" />
             </list>
           </value>
         </entry>
@@ -1614,7 +1628,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/convert-3.1.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/cross_file-0.3.4+2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/crypto-3.0.6/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/csslib-0.17.3/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/csslib-1.0.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/csv-5.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/cupertino_icons-1.0.8/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/dart_style-2.3.7/lib" />
@@ -1623,6 +1637,8 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/device_info_plus-10.1.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/device_info_plus_platform_interface-7.0.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/diff_match_patch-0.4.1/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/dio-5.8.0+1/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/dio_web_adapter-2.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/dotted_border-2.1.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/extended_image-9.0.7/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/extended_image_library-4.0.5/lib" />

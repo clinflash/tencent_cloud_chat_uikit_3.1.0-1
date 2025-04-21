@@ -1,5 +1,6 @@
 // ignore_for_file: unused_field, avoid_print, unused_import
 
+import 'dart:convert';
 import 'dart:io';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:fc_native_video_thumbnail/fc_native_video_thumbnail.dart';
@@ -25,6 +26,7 @@ import 'package:tencent_cloud_chat_uikit/ui/utils/platform.dart';
 import 'package:tencent_cloud_chat_uikit/ui/views/TIMUIKitChat/TIMUIKitTextField/intl_camer_picker.dart';
 import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 import 'package:tencent_cloud_chat_uikit/base_widgets/tim_ui_kit_base.dart';
+import 'package:dio/dio.dart';
 
 // ignore: unnecessary_import
 import 'dart:typed_data';
@@ -93,6 +95,7 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
   final ImagePicker _picker = ImagePicker();
   final TUISelfInfoViewModel _selfInfoViewModel =
       serviceLocator<TUISelfInfoViewModel>();
+  final TUIChatGlobalModel globalModel = serviceLocator<TUIChatGlobalModel>();
   Uint8List? fileContent;
   String? fileName;
   File? tempFile;
@@ -739,10 +742,18 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
         });
       }
     } else {
+      String desc = globalModel.chatConfig.notificationTitle ==
+          '收到聊天消息，请立即查看'
+          ? '您有一个新的通话'
+          : 'You have a new call';
+      Response response = await Dio().post(
+          'https://patient-cloud-dev.clinflash.net/api/eConsent/im/user/extend/info',
+          data: jsonEncode([widget.conversationID]));
       _tUICore.callService(TUICALLKIT_SERVICE_NAME, METHOD_NAME_CALL, {
         PARAM_NAME_TYPE: type,
         PARAM_NAME_USERIDS: [widget.conversationID],
-        PARAM_NAME_GROUPID: ""
+        PARAM_NAME_GROUPID: "",
+        'desc': ''
       });
     }
   }

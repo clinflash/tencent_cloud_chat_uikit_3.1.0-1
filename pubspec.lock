@@ -282,10 +282,10 @@ packages:
     dependency: "direct main"
     description:
       name: csslib
-      sha256: "831883fb353c8bdc1d71979e5b342c7d88acfbc643113c14ae51e2442ea0f20f"
+      sha256: "09bad715f418841f976c77db72d5398dc1253c21fb9c0c7f0b0b985860b2d58e"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.17.3"
+    version: "1.0.2"
   csv:
     dependency: transitive
     description:
@@ -350,6 +350,22 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.4.1"
+  dio:
+    dependency: "direct main"
+    description:
+      name: dio
+      sha256: "253a18bbd4851fecba42f7343a1df3a9a4c1d31a2c1b37e221086b4fa8c8dbc9"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "5.8.0+1"
+  dio_web_adapter:
+    dependency: transitive
+    description:
+      name: dio_web_adapter
+      sha256: "7586e476d70caecaf1686d21eee7247ea43ef5c345eab9e0cc3583ff13378d78"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.1.1"
   dotted_border:
     dependency: "direct main"
     description:

@@ -213,9 +213,9 @@
     },
     {
       "name": "csslib",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/csslib-0.17.3",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/csslib-1.0.2",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.1"
     },
     {
       "name": "csv",
@@ -264,6 +264,18 @@
       "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/diff_match_patch-0.4.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "dio",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/dio-5.8.0+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "dio_web_adapter",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/dio_web_adapter-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
     },
     {
       "name": "dotted_border",
@@ -1358,7 +1370,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-12-24T02:05:01.094934Z",
+  "generated": "2025-04-21T08:46:51.782700Z",
   "generator": "pub",
   "generatorVersion": "3.5.4",
   "flutterRoot": "file:///Users/tg_weiqingqing/flutter",
