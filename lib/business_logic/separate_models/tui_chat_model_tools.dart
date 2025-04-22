@@ -25,9 +25,11 @@ class TUIChatModelTools {
       }
     }
 
-    String title = lang == 'zh'
-        ? '收到聊天消息，请立即查看'
-        : 'You have received a chat message. Please check it immediately';
+    String title = convType == ConvType.group
+        ? ''
+        : lang == 'zh'
+            ? '收到聊天消息，请立即查看'
+            : 'You have received a chat message. Please check it immediately';
 
     // If user provides null, use default ext.
     String ext = globalModel.chatConfig.notificationExt != null
@@ -52,25 +54,25 @@ class TUIChatModelTools {
         messageSummary = lang == 'zh' ? '文件消息' : 'File message';
         break;
       case MessageElemType.V2TIM_ELEM_TYPE_GROUP_TIPS:
-        messageSummary = lang == 'zh'? '群提示消息':'Group notification';
+        messageSummary = lang == 'zh' ? '群提示消息' : 'Group notification';
         break;
       case MessageElemType.V2TIM_ELEM_TYPE_IMAGE:
-        messageSummary = lang == 'zh'? '图片消息': 'Image message';
+        messageSummary = lang == 'zh' ? '图片消息' : 'Image message';
         break;
       case MessageElemType.V2TIM_ELEM_TYPE_LOCATION:
-        messageSummary =lang == 'zh'? '位置消息': 'Location message';
+        messageSummary = lang == 'zh' ? '位置消息' : 'Location message';
         break;
       case MessageElemType.V2TIM_ELEM_TYPE_MERGER:
-        messageSummary =lang == 'zh'? '合并转发消息': 'Combined message';
+        messageSummary = lang == 'zh' ? '合并转发消息' : 'Combined message';
         break;
       case MessageElemType.V2TIM_ELEM_TYPE_SOUND:
-        messageSummary =lang == 'zh'? '语音消息': 'Voice message';
+        messageSummary = lang == 'zh' ? '语音消息' : 'Voice message';
         break;
       case MessageElemType.V2TIM_ELEM_TYPE_TEXT:
         messageSummary = message.textElem!.text!;
         break;
       case MessageElemType.V2TIM_ELEM_TYPE_VIDEO:
-        messageSummary =lang == 'zh'? '视频消息': 'Video message';
+        messageSummary = lang == 'zh' ? '视频消息' : 'Video message';
         break;
     }
 
