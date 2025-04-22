@@ -259,6 +259,9 @@ class TIMUIKitChatConfig {
 
   final Interceptor? interceptor;
 
+  final String? conversationShowName;
+
+
   const TIMUIKitChatConfig({
     this.onTapLink,
     this.timeDividerConfig,
@@ -311,5 +314,6 @@ class TIMUIKitChatConfig {
     this.isMemberCanAtAll = false,
     this.options,
     this.interceptor,
+    this.conversationShowName
   });
 }

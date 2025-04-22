@@ -26,7 +26,7 @@ class TUIChatModelTools {
     }
 
     String title = convType == ConvType.group
-        ? ''
+        ? '${message.nickName} (${globalModel.chatConfig.conversationShowName})'
         : lang == 'zh'
             ? '收到聊天消息，请立即查看'
             : 'You have received a chat message. Please check it immediately';
