@@ -167,50 +167,47 @@ class TIMUIKitChat extends StatefulWidget {
   /// additional network requests to fetch the group member information internally.
   List<V2TimGroupMemberFullInfo?>? groupMemberList;
 
-  final Map<String, dynamic>? httpHeader;
-
-  TIMUIKitChat(
-      {Key? key,
-      this.groupID,
-      required this.conversation,
-      this.conversationID,
-      this.conversationType,
-      this.groupMemberList,
-      this.conversationShowName,
-      this.abstractMessageBuilder,
-      this.onTapAvatar,
-      @Deprecated(
-          "Nickname will not show in one-to-one chat, if you tend to control it in group chat, please use `isShowSelfNameInGroup` and `isShowOthersNameInGroup` from `config: TIMUIKitChatConfig` instead")
-      this.showNickName = false,
-      this.showTotalUnReadCount = false,
-      this.messageItemBuilder,
-      @Deprecated("Please use [extraTipsActionItemBuilder] instead")
-      this.exteraTipsActionItemBuilder,
-      this.extraTipsActionItemBuilder,
-      this.draftText,
-      this.textFieldHintText,
-      this.initFindingMsg,
-      this.userAvatarBuilder,
-      this.appBarConfig,
-      this.controller,
-      this.morePanelConfig,
-      this.customStickerPanel,
-      this.config = const TIMUIKitChatConfig(),
-      this.tongueItemBuilder,
-      this.groupAtInfoList,
-      this.mainHistoryListConfig,
-      this.onDealWithGroupApplication,
-      this.toolTipsConfig,
-      this.lifeCycle,
-      this.topFixWidget = const SizedBox(),
-      this.textFieldBuilder,
-      this.customEmojiStickerList = const [],
-      this.customAppBar,
-      this.inputTopBuilder,
-      this.onSecondaryTapAvatar,
-      this.customMessageHoverBarOnDesktop,
-      this.httpHeader})
-      : super(key: key) {
+  TIMUIKitChat({
+    Key? key,
+    this.groupID,
+    required this.conversation,
+    this.conversationID,
+    this.conversationType,
+    this.groupMemberList,
+    this.conversationShowName,
+    this.abstractMessageBuilder,
+    this.onTapAvatar,
+    @Deprecated(
+        "Nickname will not show in one-to-one chat, if you tend to control it in group chat, please use `isShowSelfNameInGroup` and `isShowOthersNameInGroup` from `config: TIMUIKitChatConfig` instead")
+    this.showNickName = false,
+    this.showTotalUnReadCount = false,
+    this.messageItemBuilder,
+    @Deprecated("Please use [extraTipsActionItemBuilder] instead")
+    this.exteraTipsActionItemBuilder,
+    this.extraTipsActionItemBuilder,
+    this.draftText,
+    this.textFieldHintText,
+    this.initFindingMsg,
+    this.userAvatarBuilder,
+    this.appBarConfig,
+    this.controller,
+    this.morePanelConfig,
+    this.customStickerPanel,
+    this.config = const TIMUIKitChatConfig(),
+    this.tongueItemBuilder,
+    this.groupAtInfoList,
+    this.mainHistoryListConfig,
+    this.onDealWithGroupApplication,
+    this.toolTipsConfig,
+    this.lifeCycle,
+    this.topFixWidget = const SizedBox(),
+    this.textFieldBuilder,
+    this.customEmojiStickerList = const [],
+    this.customAppBar,
+    this.inputTopBuilder,
+    this.onSecondaryTapAvatar,
+    this.customMessageHoverBarOnDesktop,
+  }) : super(key: key) {
     startTime = DateTime.now().millisecondsSinceEpoch;
   }
 
@@ -583,7 +580,6 @@ class _TUIChatState extends TIMUIKitState<TIMUIKitChat> {
                                   : (widget.textFieldBuilder != null
                                       ? widget.textFieldBuilder!(context)
                                       : TIMUIKitInputTextField(
-                                          httpHeader: widget.httpHeader,
                                           chatConfig: widget.config,
                                           groupID: widget.groupID,
                                           atMemberPanelScroll:

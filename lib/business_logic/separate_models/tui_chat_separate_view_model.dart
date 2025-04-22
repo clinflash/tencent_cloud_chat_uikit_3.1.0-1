@@ -4,6 +4,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:collection/collection.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:path_provider/path_provider.dart';
@@ -763,9 +764,30 @@ class TUIChatSeparateViewModel extends ChangeNotifier {
           id: textATMessageInfo.id as String,
           convType: ConvType.group,
           offlinePushInfo: tools.buildMessagePushInfo(
-              textATMessageInfo.messageInfo!, convID, convType));
+              textATMessageInfo.messageInfo!, convID, convType,await _getImUserLang(convID)));
     }
     return null;
+  }
+
+  Future<String> _getImUserLang(String convID) async{
+    final _dio = Dio(globalModel.chatConfig.options!);
+    _dio.interceptors.add(globalModel.chatConfig.interceptor!);
+    Response response = await _dio.post(
+        _dio.options.baseUrl + 'im/user/extend/info',
+        data: jsonEncode([convID]));
+    String lang = 'en';
+    if (response.data != null) {
+      final data = response.data.toString();
+      final dataJson = json.decode(data) as Map<String, dynamic>;
+      List<dynamic> tempList = dataJson['data'] ?? [];
+      List<Map<String, String>> imInfoList = tempList.map((dynamicMap) {
+        return Map.from(dynamicMap).cast<String, String>();
+      }).toList();
+      if (imInfoList.isNotEmpty) {
+        lang = imInfoList.first['lang'] ?? 'en' ;
+      }
+    }
+     return lang;
   }
 
   Future<V2TimValueCallback<V2TimMessage>?> sendCustomMessage(
@@ -796,7 +818,7 @@ class TUIChatSeparateViewModel extends ChangeNotifier {
           id: customMessageInfo.id as String,
           convType: convType,
           offlinePushInfo: tools.buildMessagePushInfo(
-              customMessageInfo.messageInfo!, convID, convType));
+              customMessageInfo.messageInfo!, convID, convType,await _getImUserLang(convID)));
     }
     return null;
   }
@@ -831,7 +853,7 @@ class TUIChatSeparateViewModel extends ChangeNotifier {
           convType: convType,
           messageInfo: messageInfoWithSender,
           offlinePushInfo: tools.buildMessagePushInfo(
-              faceMessageInfo.messageInfo!, convID, convType));
+              faceMessageInfo.messageInfo!, convID, convType,await _getImUserLang(convID)));
     }
     return null;
   }
@@ -866,7 +888,7 @@ class TUIChatSeparateViewModel extends ChangeNotifier {
         id: soundMessageInfo.id as String,
         convType: convType,
         offlinePushInfo: tools.buildMessagePushInfo(
-            soundMessageInfo.messageInfo!, convID, convType),
+            soundMessageInfo.messageInfo!, convID, convType,await _getImUserLang(convID)),
       );
     }
     return null;
@@ -921,11 +943,11 @@ class TUIChatSeparateViewModel extends ChangeNotifier {
         _repliedMessage = null;
         final sendMsgRes = await _messageService.sendMessage(
             cloudCustomData:
-                TencentUtils.checkString(messageInfoWithSender?.cloudCustomData) ??
+                TencentUtils.checkString(messageInfoWithSender.cloudCustomData) ??
                     json.encode(cloudCustomData),
             id: textMessageInfo.id as String,
             offlinePushInfo: tools.buildMessagePushInfo(
-                messageInfoWithSender, convID, convType),
+                messageInfoWithSender, convID, convType,await _getImUserLang(convID)),
             needReadReceipt: chatConfig.isShowReadingStatus,
             groupID: groupID,
             receiver: receiver);
@@ -1007,7 +1029,7 @@ class TUIChatSeparateViewModel extends ChangeNotifier {
         id: imageMessageInfo.id as String,
         convType: convType,
         offlinePushInfo: tools.buildMessagePushInfo(
-            imageMessageInfo.messageInfo!, convID, convType),
+            imageMessageInfo.messageInfo!, convID, convType,await _getImUserLang(convID)),
       );
     }
     return null;
@@ -1051,7 +1073,7 @@ class TUIChatSeparateViewModel extends ChangeNotifier {
         id: videoMessageInfo.id as String,
         convType: convType,
         offlinePushInfo: tools.buildMessagePushInfo(
-            videoMessageInfo.messageInfo!, convID, convType),
+            videoMessageInfo.messageInfo!, convID, convType,await _getImUserLang(convID)),
       );
     }
     return null;
@@ -1100,7 +1122,7 @@ class TUIChatSeparateViewModel extends ChangeNotifier {
         id: fileMessageInfo.id as String,
         convType: convType,
         offlinePushInfo: tools.buildMessagePushInfo(
-            fileMessageInfo.messageInfo!, convID, convType),
+            fileMessageInfo.messageInfo!, convID, convType,await _getImUserLang(convID)),
       );
     }
     return null;
@@ -1135,7 +1157,7 @@ class TUIChatSeparateViewModel extends ChangeNotifier {
         id: locationMessageInfo.id as String,
         convType: convType,
         offlinePushInfo: tools.buildMessagePushInfo(
-            locationMessageInfo.messageInfo!, convID, convType),
+            locationMessageInfo.messageInfo!, convID, convType,await _getImUserLang(convID)),
       );
     }
     return null;
@@ -1168,7 +1190,7 @@ class TUIChatSeparateViewModel extends ChangeNotifier {
               _notify();
             }
           }
-          await Future.delayed(Duration(milliseconds: 100), () {
+          await Future.delayed(Duration(milliseconds: 100), ()async {
             _sendMessage(
               id: forwardMessageInfo.id!,
               convID: convID,
@@ -1176,7 +1198,7 @@ class TUIChatSeparateViewModel extends ChangeNotifier {
               offlinePushInfo: tools.buildMessagePushInfo(
                   forwardMessageInfo.messageInfo!,
                   convID,
-                  convType == 1 ? ConvType.c2c : ConvType.group),
+                  convType == 1 ? ConvType.c2c : ConvType.group,await _getImUserLang(convID)),
             );
           });
         }
@@ -1227,7 +1249,7 @@ class TUIChatSeparateViewModel extends ChangeNotifier {
           offlinePushInfo: tools.buildMessagePushInfo(
               mergerMessageInfo.messageInfo!,
               convID,
-              convType == 1 ? ConvType.c2c : ConvType.group),
+              convType == 1 ? ConvType.c2c : ConvType.group,await _getImUserLang(convID)),
         );
       }
     }
@@ -1304,7 +1326,7 @@ class TUIChatSeparateViewModel extends ChangeNotifier {
           id: textMessageInfo.id as String,
           convType: convType,
           offlinePushInfo: tools.buildMessagePushInfo(
-              textMessageInfo.messageInfo!, convID, convType));
+              textMessageInfo.messageInfo!, convID, convType,await _getImUserLang(convID)));
     }
     return null;
   }
@@ -1320,7 +1342,7 @@ class TUIChatSeparateViewModel extends ChangeNotifier {
     bool? needReadReceipt,
     String? cloudCustomData,
     String? localCustomData,
-  }) {
+  }) async{
     List<V2TimMessage> currentHistoryMsgList = getOriginMessageList();
     if (messageInfo != null) {
       final messageInfoWithSender = messageInfo.sender == null
@@ -1349,7 +1371,7 @@ class TUIChatSeparateViewModel extends ChangeNotifier {
         convType: conversationType ?? ConvType.c2c,
         offlinePushInfo: offlinePushInfo ??
             tools.buildMessagePushInfo(
-                messageInfo, conversationID, conversationType ?? ConvType.c2c),
+                messageInfo, conversationID, conversationType ?? ConvType.c2c,await _getImUserLang(conversationID)),
       );
     }
     return null;

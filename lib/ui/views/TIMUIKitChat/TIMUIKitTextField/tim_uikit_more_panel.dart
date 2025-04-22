@@ -47,7 +47,6 @@ class MorePanelConfig {
   final bool showVideoCall;
   final List<MorePanelItem>? extraAction;
   final Widget Function(MorePanelItem item)? actionBuilder;
-  final Map<String, dynamic>? httpHeader;
 
   MorePanelConfig({
     this.showFilePickAction = true,
@@ -59,7 +58,6 @@ class MorePanelConfig {
     this.showVideoCall = true,
     this.extraAction,
     this.actionBuilder,
-    this.httpHeader,
   });
 }
 
@@ -744,18 +742,28 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
         });
       }
     } else {
-      String desc = globalModel.chatConfig.notificationTitle ==
-          '收到聊天消息，请立即查看'
-          ? '您有一个新的通话'
-          : 'You have a new call';
-      Response response = await Dio().post(
-          'https://patient-cloud-dev.clinflash.net/api/eConsent/im/user/extend/info',
-          data: jsonEncode([widget.conversationID]),options:Options(headers: widget.morePanelConfig!.httpHeader) );
+      final _dio = Dio(globalModel.chatConfig.options!);
+      _dio.interceptors.add(globalModel.chatConfig.interceptor!);
+      Response response = await _dio.post(
+          _dio.options.baseUrl + 'im/user/extend/info',
+          data: jsonEncode([widget.conversationID]));
+      String? desc;
+      if (response.data != null) {
+        final data = response.data.toString();
+        final dataJson = json.decode(data) as Map<String, dynamic>;
+        List<dynamic> tempList = dataJson['data'] ?? [];
+        List<Map<String, String>>  imInfoList = tempList.map((dynamicMap) {
+          return Map.from(dynamicMap).cast<String, String>();
+        }).toList();
+        if(imInfoList.isNotEmpty){
+          desc = imInfoList.first['lang'] == 'zh'? '您有一个新的通话' : 'You have a new call';
+        }
+      }
       _tUICore.callService(TUICALLKIT_SERVICE_NAME, METHOD_NAME_CALL, {
         PARAM_NAME_TYPE: type,
         PARAM_NAME_USERIDS: [widget.conversationID],
         PARAM_NAME_GROUPID: "",
-        'desc': ''
+        'desc': desc
       });
     }
   }

@@ -100,7 +100,6 @@ class TIMUIKitInputTextField extends StatefulWidget {
 
   final String? groupID;
 
-  final Map<String, dynamic>? httpHeader;
 
   const TIMUIKitInputTextField(
       {Key? key,
@@ -124,8 +123,7 @@ class TIMUIKitInputTextField extends StatefulWidget {
       this.groupType,
       this.atMemberPanelScroll,
       this.groupID,
-      this.chatConfig,
-      this.httpHeader})
+      this.chatConfig,})
       : super(key: key);
 
   @override
