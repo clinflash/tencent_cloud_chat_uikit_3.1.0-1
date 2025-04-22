@@ -38,7 +38,6 @@ class CurrentConversation {
 class TUIChatGlobalModel extends ChangeNotifier implements TIMUIKitClass {
   final MessageService _messageService = serviceLocator<MessageService>();
   final GroupServices _groupServices = serviceLocator<GroupServices>();
-  final TUIChatGlobalModel globalModel = serviceLocator<TUIChatGlobalModel>();
   final Map<String, List<V2TimMessage>?> _messageListMap = {};
   final Map<String, V2TimMessageReceipt> _messageReadReceiptMap = {};
   final Map<String, int> _messageListProgressMap = {};
@@ -886,8 +885,8 @@ class TUIChatGlobalModel extends ChangeNotifier implements TIMUIKitClass {
   }
 
   Future<String> _getImUserLang(String convID) async {
-    final _dio = Dio(globalModel.chatConfig.options!);
-    _dio.interceptors.add(globalModel.chatConfig.interceptor!);
+    final _dio = Dio(chatConfig.options!);
+    _dio.interceptors.add(chatConfig.interceptor!);
     Response response = await _dio.post(
         _dio.options.baseUrl + 'im/user/extend/info',
         data: jsonEncode([convID]));
