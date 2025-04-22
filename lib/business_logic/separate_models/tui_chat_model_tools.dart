@@ -45,34 +45,70 @@ class TUIChatModelTools {
     String messageSummary = "";
     switch (message.elemType) {
       case MessageElemType.V2TIM_ELEM_TYPE_CUSTOM:
-        messageSummary = lang == 'zh' ? "自定义消息" : 'Custom message';
+        messageSummary = convType == ConvType.group
+            ? TIM_t("自定义消息")
+            : lang == 'zh'
+                ? "自定义消息"
+                : 'Custom message';
         break;
       case MessageElemType.V2TIM_ELEM_TYPE_FACE:
-        messageSummary = lang == 'zh' ? "表情消息" : 'Emoji message';
+        messageSummary = convType == ConvType.group
+            ? TIM_t("表情消息")
+            : lang == 'zh'
+                ? "表情消息"
+                : 'Emoji message';
         break;
       case MessageElemType.V2TIM_ELEM_TYPE_FILE:
-        messageSummary = lang == 'zh' ? '文件消息' : 'File message';
+        messageSummary = convType == ConvType.group
+            ? TIM_t("文件消息")
+            : lang == 'zh'
+                ? '文件消息'
+                : 'File message';
         break;
       case MessageElemType.V2TIM_ELEM_TYPE_GROUP_TIPS:
-        messageSummary = lang == 'zh' ? '群提示消息' : 'Group notification';
+        messageSummary = convType == ConvType.group
+            ? TIM_t("群提示消息")
+            : lang == 'zh'
+                ? '群提示消息'
+                : 'Group notification';
         break;
       case MessageElemType.V2TIM_ELEM_TYPE_IMAGE:
-        messageSummary = lang == 'zh' ? '图片消息' : 'Image message';
+        messageSummary = convType == ConvType.group
+            ? TIM_t("图片消息")
+            : lang == 'zh'
+                ? '图片消息'
+                : 'Image message';
         break;
       case MessageElemType.V2TIM_ELEM_TYPE_LOCATION:
-        messageSummary = lang == 'zh' ? '位置消息' : 'Location message';
+        messageSummary = convType == ConvType.group
+            ? TIM_t("位置消息")
+            : lang == 'zh'
+                ? '位置消息'
+                : 'Location message';
         break;
       case MessageElemType.V2TIM_ELEM_TYPE_MERGER:
-        messageSummary = lang == 'zh' ? '合并转发消息' : 'Combined message';
+        messageSummary = convType == ConvType.group
+            ? TIM_t("合并转发消息")
+            : lang == 'zh'
+                ? '合并转发消息'
+                : 'Combined message';
         break;
       case MessageElemType.V2TIM_ELEM_TYPE_SOUND:
-        messageSummary = lang == 'zh' ? '语音消息' : 'Voice message';
+        messageSummary = convType == ConvType.group
+            ? TIM_t("语音消息")
+            : lang == 'zh'
+                ? '语音消息'
+                : 'Voice message';
         break;
       case MessageElemType.V2TIM_ELEM_TYPE_TEXT:
         messageSummary = message.textElem!.text!;
         break;
       case MessageElemType.V2TIM_ELEM_TYPE_VIDEO:
-        messageSummary = lang == 'zh' ? '视频消息' : 'Video message';
+        messageSummary = convType == ConvType.group
+            ? TIM_t("视频消息")
+            : lang == 'zh'
+                ? '视频消息'
+                : 'Video message';
         break;
     }
 
