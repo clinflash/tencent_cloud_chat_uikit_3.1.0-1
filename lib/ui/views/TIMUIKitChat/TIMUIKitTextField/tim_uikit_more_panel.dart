@@ -47,6 +47,9 @@ class MorePanelConfig {
   final bool showVideoCall;
   final List<MorePanelItem>? extraAction;
   final Widget Function(MorePanelItem item)? actionBuilder;
+  final BaseOptions? options;
+
+  final Interceptor? interceptor;
 
   MorePanelConfig({
     this.showFilePickAction = true,
@@ -58,6 +61,8 @@ class MorePanelConfig {
     this.showVideoCall = true,
     this.extraAction,
     this.actionBuilder,
+    this.options,
+    this.interceptor,
   });
 }
 
@@ -95,7 +100,6 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
   final ImagePicker _picker = ImagePicker();
   final TUISelfInfoViewModel _selfInfoViewModel =
       serviceLocator<TUISelfInfoViewModel>();
-  final TUIChatGlobalModel globalModel = serviceLocator<TUIChatGlobalModel>();
   Uint8List? fileContent;
   String? fileName;
   File? tempFile;
@@ -742,8 +746,8 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
         });
       }
     } else {
-      final _dio = Dio(globalModel.chatConfig.options!);
-      _dio.interceptors.add(globalModel.chatConfig.interceptor!);
+      final _dio = Dio(widget.morePanelConfig!.options!);
+      _dio.interceptors.add(widget.morePanelConfig!.interceptor!);
       Response response = await _dio.post(
           _dio.options.baseUrl + 'im/user/extend/info',
           data: jsonEncode([widget.conversationID]));
