@@ -525,9 +525,9 @@
     },
     {
       "name": "image_gallery_saver_plus",
-      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/image_gallery_saver_plus-3.0.5",
+      "rootUri": "file:///Users/tg_weiqingqing/.pub-cache/hosted/pub.flutter-io.cn/image_gallery_saver_plus-4.0.1",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.5"
     },
     {
       "name": "image_picker",

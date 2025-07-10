@@ -35,7 +35,7 @@ dependencies:
   azlistview_all_platforms: ^2.1.2
   lpinyin: ^2.0.3
   transparent_image: ^2.0.0
-  image_gallery_saver_plus: ^3.0.5
+  image_gallery_saver_plus: ^4.0.1
   path_provider: ^2.0.8
   cached_network_image: ^3.3.0
   shared_preferences: ^2.0.13
